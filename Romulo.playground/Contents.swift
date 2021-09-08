@@ -61,7 +61,25 @@ func returnListOfWrods( text : String) -> [String]{
     
 }
 //Write a function that returns the amount of strings in an array that starts with a given character
+
+func returnArrayBasedCharacter(arrayStrings: [String], character: Character) -> [String]{
+    
+    var arrayOfString: [String] = []
+    
+    for word in arrayStrings{
+        
+        if(word.hasPrefix(String(character))){
+            arrayOfString.append(word)
+        }
+        
+    }
+    
+    return arrayOfString
+    
+}
 //Write a function that performs a given arithmetic operation in a given pair of doubles
+
+
 //Write a function that returns true if a Tic-Tac-Toe board has a winner
 
 var task1 = returnIfAllLettersAreEqual(word: "oiuytreww")
@@ -69,6 +87,7 @@ var task2 = returnSmallestNumber(arrayOfNumbers: [1,2,3,4,5,-1])
 var task3 = returnAverageDoubleArray(arrayDouble: [1.0, 2.0])
 var task4 = returnGreatesttNumber(arrayOfNumbers: [1.0, 2.0, 3.5, 3.4])
 var task5 = returnListOfWrods(text: "Meu nome é Romulo Basso Krebs")
+var task6 = returnArrayBasedCharacter(arrayStrings: ["oi", "teste", "oooiii"], character: "o")
 
 
 print(task1)
@@ -76,3 +95,4 @@ print(task2)
 print(task3)
 print(task4)
 print(task5)
+print(task6)
