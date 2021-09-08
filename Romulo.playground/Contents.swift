@@ -1,9 +1,5 @@
 import UIKit
 
-enum MyError: Error {
-    case runtimeError(String)
-}
-
 
 //Write a function that returns true if all letters are different in a given string
 func returnIfAllLettersAreEqual(word : String) -> Bool{
@@ -37,9 +33,14 @@ func returnSmallestNumber( arrayOfNumbers : [Int])  -> String{
 
 func returnAverageDoubleArray(arrayDouble: [Double]) -> String {
     
-
+    var sum : Double = 0.0
+    let numberOfItems: Double = Double(arrayDouble.count)
     
-    return "Média \()"
+    for item in arrayDouble{
+        sum += item
+    }
+    
+    return "Média \(sum/numberOfItems)"
 }
 
 //Write a function that returns N greatest numbers of an array of floats
@@ -50,7 +51,9 @@ func returnAverageDoubleArray(arrayDouble: [Double]) -> String {
 
 var task1 = returnIfAllLettersAreEqual(word: "oiuytreww")
 var task2 = returnSmallestNumber(arrayOfNumbers: [1,2,3,4,5,-1])
+var task3 = returnAverageDoubleArray(arrayDouble: [1.0, 2.0])
 
 
 print(task1)
 print(task2)
+print(task3)
