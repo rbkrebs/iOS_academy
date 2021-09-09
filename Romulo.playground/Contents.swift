@@ -86,14 +86,10 @@ func returnArrayBasedCharacter(arrayStrings: [String], character: Character) -> 
 
  enum ArithmenticsOperations{
     
-    
     case addition
     case subtraction
     case multiplication
     case division
-    
-    
-
 }
 
 enum CustomExceptions: Error{
@@ -121,6 +117,46 @@ func arithmeticsOperationsFunction(operations: ArithmenticsOperations, number1: 
 
 
 //Write a function that returns true if a Tic-Tac-Toe board has a winner
+enum TicTacToe{
+    case cross
+    case nought
+}
+
+
+func returnTrueForTicTacToe(tictacToe: [[ TicTacToe]]) -> Bool{
+    
+    //check rows
+    for row in tictacToe{
+        if(Set(row).count == 1){
+            return true
+        }
+    }
+    var diagonal1 : [TicTacToe] = []
+    var diagonal2 : [TicTacToe] = []
+    for var i in 0...2{
+        var vertical:[TicTacToe] = []
+        for var j in 0...2{
+            if(i==j){
+                
+                diagonal1.append(tictacToe[i][j])
+                diagonal2.append(tictacToe[i][2-j])
+           
+            }
+            vertical.append(tictacToe[j][i])
+           
+        }
+        if(Set(vertical).count == 1){
+            
+            return true
+        }
+    }
+    if( Set(diagonal1).count == 1 || Set(diagonal2).count == 1){
+        return true
+    }
+ 
+    return false
+}
+
 
 var task1 = returnIfAllLettersAreEqual(word: "oiuytreww")
 var task2 = returnSmallestNumber(arrayOfNumbers: [1,2,3,4,5,-1])
@@ -128,7 +164,10 @@ var task3 = returnAverageDoubleArray(arrayDouble: [1.0, 2.0])
 var task4 = returnNGreatesttNumber(arrayOfNumbers: [1.0, 2.0, 3.5, 3.4], nGreatest: 5)
 var task5 = returnListOfWrods(text: "Meu nome é Romulo Basso Krebs")
 var task6 = returnArrayBasedCharacter(arrayStrings: ["oi", "teste", "oooiii"], character: "o")
-var task7 = arithmeticsOperationsFunction(operations: .division, number1: 4, number2: 0)
+var task7 = arithmeticsOperationsFunction(operations: .multiplication, number1: 4, number2: 9)
+var task8 = returnTrueForTicTacToe(tictacToe: [[.cross,.cross,.nought],
+                                               [.nought,.cross,.nought],
+                                               [.cross,.nought,.cross]])
 
 print(task1)
 print(task2)
@@ -137,3 +176,5 @@ print(task4)
 print(task5)
 print(task6)
 print(task7)
+print(task8)
+
